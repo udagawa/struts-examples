@@ -45,6 +45,7 @@
     </properties>
 
     <modules>
+        <!--
         <module>action-chaining</module>
         <module>annotations</module>
         <module>basic-struts</module>
@@ -84,6 +85,7 @@
         <module>wildcard-method-selection</module>
         <module>wildcard-regex</module>
         <module>unknown-handler</module>
+        -->
     </modules>
 
     <dependencies>
