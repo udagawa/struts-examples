@@ -22,19 +22,33 @@
 package org.apache.struts.example;
 
 import com.opensymphony.xwork2.ActionSupport;
+import org.apache.logging.log4j.*;
 
-import java.io.File;
+import java.io.*;
+import java.nio.file.*;
+import java.nio.charset.*;
+import java.util.*;
 
 /**
  * <code>Allows upload a file</code>
  */
 public class Upload extends ActionSupport {
+    static final Logger LOG = LogManager.getLogger(Upload.class);
 
     private File[] upload;
     private String[] uploadFileName;
     private String[] uploadContentType;
 
     public String execute() throws Exception {
+        LOG.info("RUN");
+        if (upload != null) {
+            for(File file : upload) {
+                LOG.info(file.toString());
+                Path path = Paths.get(file.getPath());
+                List<String> allLines = Files.readAllLines(path, StandardCharsets.UTF_8);
+                LOG.info(allLines.toString());
+            }
+        }
         return INPUT;
     }
 
